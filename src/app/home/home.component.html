@@ -1,1 +1,61 @@
-<p>home works!</p>
+<section>
+    <mat-accordion>
+        <mat-expansion-panel hideToggle expanded="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                About the APP
+            </mat-panel-title>
+            <mat-panel-description>
+              Summary of this app
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>This is a simple Angular application setup with the latest Angular version of the library (v.17).</p>
+          <p>The app will stand as a boilerplate that will act as a <i>starting point</i> for other applications.</p>
+          <p>This setup includes basic functionalities like:</p>
+          <ul>
+              <li>Routing & Navigation</li>
+              <li>Angular Material</li>
+              <li>SCSS language for stylesheets</li>
+              <li>Standalone architecture</li>
+          </ul>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              How to get started
+            </mat-panel-title>
+            <mat-panel-description>
+              Concrete steps to have you up & running in no time
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <h2>Prerequisites</h2>
+          <ol>
+              <li>Make sure you have the <a href="https://nodejs.org/en" target="_blank">NodeJS</a> environment installed on your system.</li>
+              <li>Install <a href="https://git-scm.com/downloads" target="_blank">GIT</a> on your system.</li>
+              <li>Clone locally <a href="https://github.com/Filip1986/mission-planner" target="_blank">this</a> repository.</li>
+          </ol>
+          <h2>Concrete steps</h2>
+          <ol>
+            <li>open a terminal window to the location of the project</li>
+            <ul>
+                <li><code>cd path/to/project</code></li>
+            </ul>
+            <li>Install the required dependencies:</li>
+            <ul>
+                <li><code>npm run install</code></li>
+            </ul>
+            <li>Run the project</li>
+            <ul>
+                <li><code>npm run start</code></li>
+            </ul>
+            <li>In the terminal you should see the URL and port where the application is being server</li>
+            <ul>
+                <li>Usually this is <a href="http://localhost:4200">http://localhost:4200</a></li>
+            </ul>
+          </ol>
+          <p>If everything went ok, now you are all setup to make changes to this project and see the updates live.</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+</section>
