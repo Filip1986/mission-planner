@@ -1,3 +1,11 @@
-table {
-    width: 100%;
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.logo {
+    background-image: url("../assets/assets/images/image.webp");
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    cursor: pointer;
 }
