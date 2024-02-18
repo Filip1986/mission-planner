@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { PositionMapping } from '../models/position-mapping.interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +13,16 @@ export class LocalStorageService {
     localStorage.setItem(key, JSON.stringify(value));
   }
 
-  getData(key: string) {
+  getData(key: string): PositionMapping[] | [] {
     if(key) {
       const localStorageData = localStorage.getItem(key);
+      
       if(localStorageData) {
+        console.log('data', JSON.parse(localStorageData));
         return JSON.parse(localStorageData);
       }
     }
+
+    return [];
   }
 }

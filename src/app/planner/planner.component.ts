@@ -14,15 +14,10 @@ import {
 } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { LocalStorageService } from '../services/local-storage.service';
+import { PositionMapping } from '../models/position-mapping.interface';
 
-export interface PeriodicElement {
-  position: number;
-  name: string;
-  x: string;
-  y: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [];
+export const ELEMENT_DATA: PositionMapping[] = [];
 
 @Component({
   selector: 'app-planner',
@@ -48,8 +43,8 @@ const ELEMENT_DATA: PeriodicElement[] = [];
 export class PlannerComponent {
   displayedColumns = ['position', 'name', 'x', 'y'];
   dataSource = [...ELEMENT_DATA];
-  savedDataSource: PeriodicElement[] | undefined;
-  @ViewChild(MatTable) table!: MatTable<PeriodicElement>;
+  
+  @ViewChild(MatTable) table!: MatTable<PositionMapping>;
 
   myForm!: FormGroup;
 
@@ -57,18 +52,14 @@ export class PlannerComponent {
     private formBuilder: FormBuilder, 
     private _snackBar: MatSnackBar,
     private _localStorageService: LocalStorageService
-    ) {
+  ) {
     this.myForm = this.formBuilder.group({
       name: ['', Validators.required],
       x: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
       y: [null, [Validators.required, Validators.pattern('^[0-9]*$')]]
     });
 
-    this.savedDataSource = this._localStorageService.getData('dataSource');
-
-    if(this.savedDataSource) {
-      this.dataSource = this.savedDataSource;
-    }
+    this.dataSource = this._localStorageService.getData('dataSource') || [];
   }
 
   onSubmit() {
