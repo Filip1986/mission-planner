@@ -1,4 +1,10 @@
 <div class="animation-wrapper">
+    <ng-container
+        *ngTemplateOutlet="canInteractWithAnimation ? animation : notEnoughData"
+  ></ng-container>
+</div>
+
+<ng-template #animation>
     <div class="location">
         <table mat-table [dataSource]="dataSource">
           
@@ -29,4 +35,8 @@
             </button>
         </div>
     </div>
-</div>
+</ng-template>
+
+<ng-template #notEnoughData>
+    <p>You need at least two points before interacting with the animation.</p>
+</ng-template>
