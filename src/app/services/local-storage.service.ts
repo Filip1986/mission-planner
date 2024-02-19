@@ -18,7 +18,6 @@ export class LocalStorageService {
       const localStorageData = localStorage.getItem(key);
       
       if(localStorageData) {
-        console.log('data', JSON.parse(localStorageData));
         return JSON.parse(localStorageData);
       }
     }

@@ -64,6 +64,7 @@ export class PlannerComponent {
 
   onSubmit() {
     if(this.myForm.valid) {
+      console.log(this.myForm.value);
       this.dataSource.push({
         position: this.dataSource.length,
         ...this.myForm.value
