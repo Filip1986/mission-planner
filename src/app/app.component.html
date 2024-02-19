@@ -1,0 +1,18 @@
+<mat-toolbar>
+  <div class="logo" routerLink="/home"></div>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/home">Home</button>
+    <button mat-menu-item routerLink="/planner">Planner</button>
+    <button mat-menu-item routerLink="/player">Player</button>
+  </mat-menu>
+  <span>Mission Planner</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="gotoRepo()">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<router-outlet />
